@@ -1,4 +1,5 @@
-(use '[clojure.contrib.duck-streams :only (reader read-lines)])
+(ns problem-22
+  (use [clojure.contrib.duck-streams :only (reader read-lines)]))
 
 (def letter->index
      {\A 1

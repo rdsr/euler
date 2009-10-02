@@ -1,4 +1,5 @@
-(use '[clojure.contrib.duck-streams :only (reader read-lines)])
+(ns problem-18
+  (use [clojure.contrib.duck-streams :only (reader read-lines)]))
 
 (defn build-sum-mtx [triangle]
   (let [len (count triangle)]

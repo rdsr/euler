@@ -1,3 +1,5 @@
+(ns problem-17)
+
 (def number->wrd-cnt
      {1 (count "one")
       2 (count "two")
