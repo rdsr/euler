@@ -9,7 +9,7 @@
     false
     (> (apply + (proper-divisors n)) n)))
 
-(defn fill-map []
+(defn fill-abndt-map []
   (doseq [n (range 12 20162)
           i (range 1 (/ 20161 n)) 
           :when (and (not (@abndt-map n)) (abundant? n))]
@@ -17,7 +17,7 @@
   @abndt-map)
 
 (defn problem-23 []
-  (let [abndt-nos (vec (keys (fill-map)))
+  (let [abndt-nos (vec (keys (fill-abndt-map)))
         len (count abndt-nos)]
     (doseq [i (range 0 len) j (range i len) 
             :when (<= (+ (get abndt-nos i) (get abndt-nos j)) 20161)]
