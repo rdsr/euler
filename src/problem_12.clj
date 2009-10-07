@@ -3,5 +3,7 @@
 
 (defn problem-12 []
   (first (filter #(>= (count (divisors %)) 500)
-                 (map #(/ (* % (+ % 1)) 2) (iterate inc 1)))))
+                 (map #(/ (* % (inc %)) 2) (iterate inc 1)))))
+
+(problem-12)
 
