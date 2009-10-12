@@ -1,0 +1,6 @@
+My attempt at solving project euler problems in Clojure.
+
+If you so desire to run any of these programs, you can 
+do it by...
+
+java -cp path/to/clojure.jar/:path/to/clojure-contrib.jar clojure.main problem-<number>.clj
