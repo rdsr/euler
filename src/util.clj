@@ -1,8 +1,5 @@
 (ns util)
 
-(defn divisors [n]
-  (cons n (proper-divisors n) ))
-
 (defn proper-divisors [n]
   (loop [i 2 nos '(1)]
     (cond
@@ -13,3 +10,7 @@
             (recur (inc i ) (cons i nos))
             (recur (inc i) (cons i (cons (/ n i) nos)))))
       :else (recur (inc i) nos))))
+
+(defn divisors [n]
+  (cons n (proper-divisors n) ))
+
