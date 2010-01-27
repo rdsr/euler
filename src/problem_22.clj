@@ -42,3 +42,5 @@
         (sort (map #(.substring % 1 (- (.length %) 1)) 
                    (.split (first (read-lines (reader "http://projecteuler.net/project/names.txt"))) ",")))
         (iterate inc 1))))
+
+(problem-22)

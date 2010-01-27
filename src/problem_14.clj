@@ -1,12 +1,16 @@
 (ns problem-14)
 
-;; (def collatz-cache (atom {}))
+(def collatz-cache (atom {1 0 2 1 3 7}))
 
-;; (defn cached-chain []
-;;   (doseq [no (range 1 1000000)]
-;;     (if (even? no)
-;;       (swap! collatz-cache assoc no (inc (@collatz-cache (/ no 2) 0)))
-;;       (swap! collatz-cache assoc no (inc (@collatz-cache (inc (* 3 no)) 0))))))
+(defn cached-chain []
+  (doseq [no (range 4 (inc 3000001))]
+    (when (even? no)
+      (do (swap! collatz-cache assoc no (inc (/ no 2))) ;; calculate no's chain length since n/2 has already been calculated before
+          (when (= (rem (dec no) 3) 0)
+            ;; calculate (/ (dec no) 3)'s chain length since no's chain length was not known before
+            (swap! collatz-cache assoc (/ (dec no) 3) (@collatz-cache no))))))
+  @collatz-cache)
+
 
 ;; (defn problem-14 []
 ;;   (reduce (fn [a b]
@@ -32,6 +36,3 @@
           (recur (inc no) max no-having-max))))))
   
 (problem-14)
-
-
-

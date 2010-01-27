@@ -12,12 +12,14 @@
                                 b (or (get row j) 0)]
                             (+ (max a b) n)))]
                 (recur (conj mtx 
-                             (vec (map sum (get triangle i) (range 0 (inc i))))) ;; converting back lazyseq from map to a vector since we would access on line 8 in the next iteration
+                             ;; converting back lazyseq from map to a vector since
+                             ;; we would access on line 8 in the next iteration
+                             (vec (map sum (get triangle i) (range 0 (inc i))))) 
                        (inc i)))))))
 
 (defn max-sum [mtx] (apply max (last mtx)))
 
-(defn problem-67 []
+(defn problem-18 []
   (max-sum
    (build-sum-mtx
     ;; reduce below build a triangle
@@ -26,3 +28,5 @@
                    (vec (map #(Integer. %)
                              (.split line " "))))
                  (read-lines (reader "http://projecteuler.net/project/triangle.txt")))))))
+
+(problem-18)

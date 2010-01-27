@@ -1,6 +1,6 @@
 (ns problem-25)
 
-(defn fib
+(defn- fib
   ([] (concat [1 1] (fib 1 1)))
   ([a b]
      (lazy-seq (cons (+ a b)
@@ -12,3 +12,5 @@
     (filter (fn [[fi i]] 
               (= (.length (str fi)) 1000))
             (map (fn [fi i] [fi i]) (fib) (iterate inc 1))))))
+
+(problem-25)

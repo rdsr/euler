@@ -71,3 +71,5 @@
               (and (= (count parts) 2) (>= (first parts) 100)) (+ (count "and") cnt)
               :else cnt)))
         (map number->parts (range 1 1001)))))
+
+(problem-17)

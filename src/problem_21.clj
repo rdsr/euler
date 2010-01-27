@@ -1,5 +1,5 @@
 (ns problem-21
-  (:use [util]))
+  (:use [util :only (proper-divisors)]))
 
 (defn d [n]
   (apply + (proper-divisors n)))
@@ -20,3 +20,4 @@
    (filter amicable? (range 1 10000))))
 
 (problem-21)
+

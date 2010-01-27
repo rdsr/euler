@@ -6,3 +6,5 @@
   (doseq [a (range 2 101) b (range 2 101)]
     (swap! terms conj (Math/pow a b)))
   (count @terms))
+
+(problem-29)

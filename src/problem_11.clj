@@ -45,5 +45,4 @@
      (map #(max (prdt-e nos %) (prdt-se nos %) (prdt-s nos %) (prdt-sw nos %))
           (range 0 400)))))
 
-(problem-11) 
-
+(problem-11)

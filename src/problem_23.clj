@@ -1,5 +1,5 @@
 (ns problem-23
-  (use [util]))
+  (use [util :only (proper-divisors)]))
 
 (def abndt-map (atom (sorted-map)))
 (def abndt-sum-map (atom {}))
@@ -25,4 +25,4 @@
     (apply + (filter (complement @abndt-sum-map)
                      (range 1 20162)))))
 
-
+(problem-23)
