@@ -15,5 +15,5 @@
                      (- ne (* 3 (- sq-sz 1)))))
                 (rest (ne-nos)) ;; leaving out 1
                 (rest square-sizes)))))
-(problem-28)
 
+(problem-28)
