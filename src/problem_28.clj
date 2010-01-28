@@ -18,4 +18,5 @@
                 (rest (ne-nos)) 
                 (rest square-sizes))))) 
 
+
 (problem-28)
