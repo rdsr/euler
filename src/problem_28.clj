@@ -9,11 +9,13 @@
     (apply +
            1 ;; adding it here for the 1x1 square
            (map (fn [ne sq-sz]
-                  (+ ne
-                     (- ne (- sq-sz 1))
-                     (- ne (* 2 (- sq-sz 1)))
-                     (- ne (* 3 (- sq-sz 1)))))
-                (rest (ne-nos)) ;; leaving out 1
-                (rest square-sizes)))))
+                  (let [sq-sz-1 (- sq-sz 1)]
+                    (+ ne 
+                       (- ne sq-sz-1) 
+                       (- ne (* 2 sq-sz-1))
+                       (- ne (* 3 sq-sz-1)))))
+                ;; leaving out 1x1 square
+                (rest (ne-nos)) 
+                (rest square-sizes))))) 
 
 (problem-28)
