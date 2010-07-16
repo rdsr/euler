@@ -22,3 +22,14 @@
 
 (defn divisors [n]
   (cons n (proper-divisors n) ))
+
+(defn number-to-digits
+  [number]
+  (loop [n number digits ()]
+    (let [remainder (rem n 10)]
+      (if (= n 0)
+        digits
+        (recur (/ (- n remainder) 10)
+               (conj digits remainder))))))
+
+
