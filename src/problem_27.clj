@@ -1,5 +1,6 @@
 (ns problem-27
-  (:use [clojure.contrib.lazy-seqs]))
+  (:use [clojure.contrib.lazy-seqs]
+        [util :only (not-divisible?)]))
 
 ;; Euler published the remarkable quadratic formula:
 
@@ -35,7 +36,7 @@
 (defn- prime? [n]
   (if (neg? n)
     false
-    (every? #(not= (rem n %) 0)
+    (every? #(not-divisible? n %)
             (take-while (fn [i] (<= (square i) n)) primes))))
 
 (defn- primes-count [a b]

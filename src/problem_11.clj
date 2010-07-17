@@ -1,4 +1,5 @@
-(ns problem-11)
+(ns problem-11
+  (:use [util :only (divisible?)]))
 
 ;; In the 2020 grid below, four numbers along a diagonal line have been marked in red.
 
@@ -40,31 +41,31 @@
 
 (defn- prdt-e [nos i]
   (cond
-    (= 0 (rem (- i 17) 20)) 0
-    (= 0 (rem (- i 18) 20)) 0
-    (= 0 (rem (- i 19) 20)) 0
-    :else (apply * (map #(get nos %) (range i (+ i 4))))))
+   (divisible? (- i 17) 20) 0
+   (divisible? (- i 18) 20) 0
+   (divisible? (- i 19) 20) 0
+   :else (apply * (map #(get nos %) (range i (+ i 4))))))
 
 (defn- prdt-se [nos i]
   (cond
-    (>= i 340) 0
-    (= 0 (rem (- i 17) 20)) 0
-    (= 0 (rem (- i 18) 20)) 0
-    (= 0 (rem (- i 19) 20)) 0
-    :else (apply * (map #(get nos %) (range i (+ i (* 4 21)) 21)))))
+   (>= i 340) 0
+   (divisible? (- i 17) 20) 0
+   (divisible? (- i 18) 20) 0
+   (divisible? (- i 19) 20) 0
+   :else (apply * (map #(get nos %) (range i (+ i (* 4 21)) 21)))))
 
 (defn- prdt-s [nos i]
   (cond
-    (>= i 340) 0
-    :else (apply * (map #(get nos %) (range i (+ i (* 4 20)) 20)))))
+   (>= i 340) 0
+   :else (apply * (map #(get nos %) (range i (+ i (* 4 20)) 20)))))
 
 (defn- prdt-sw [nos i]
   (cond
-    (>= i 340) 0
-    (= 0 (rem (- i 0) 20)) 0
-    (= 0 (rem (- i 1) 20)) 0
-    (= 0 (rem (- i 2) 20)) 0
-    :else (apply * (map #(get nos %) (range i (+ i (* 4 19)) 19)))))
+   (>= i 340) 0
+   (divisible? (- i 0) 20) 0
+   (divisible? (- i 1) 20) 0
+   (divisible? (- i 2) 20) 0
+   :else (apply * (map #(get nos %) (range i (+ i (* 4 19)) 19)))))
 
 (defn problem-11 []
   (let [nos (read-nos)]
@@ -72,3 +73,4 @@
      max
      (map #(max (prdt-e nos %) (prdt-se nos %) (prdt-s nos %) (prdt-sw nos %))
           (range 0 400)))))
+

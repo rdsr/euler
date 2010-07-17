@@ -21,7 +21,7 @@
       :else (recur (inc i) nos))))
 
 (defn divisors [n]
-  (cons n (proper-divisors n) ))
+  (cons n (proper-divisors n)))
 
 (defn number-to-digits
   [number]
@@ -32,4 +32,13 @@
         (recur (/ (- n remainder) 10)
                (conj digits remainder))))))
 
+(defn digits-to-number [& digits]
+  (reduce
+   +
+   (map #(* %1 %2)
+        (conj (iterate square 10) 1)
+        (reverse digits))))
 
+(defn divisible? [n d] (= (rem n d) 0))
+
+(def not-divisible? (complement divisible?))

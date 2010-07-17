@@ -108,5 +108,3 @@
 (defn problem-13 []
   (take 10 (str (reduce + numbers))))
 
-
-

@@ -1,5 +1,5 @@
 (ns problem-20
-  (:use [util :only (number-to-digits)]))
+  (:use [util :only (number-to-digits not-divisible?)]))
 
 ;; n! means n × (n  − 1) × ... × 3 × 2 × 1
 ;; Find the sum of the digits in the number 100!
@@ -14,7 +14,7 @@
   ([number factor times]
      (loop [n number t 0]
        (if (or (= t times)
-               (not= (rem n factor) 0))
+               (not-divisible? n factor))
          [n t]
         (recur (/ n factor) (inc t))))))
 
